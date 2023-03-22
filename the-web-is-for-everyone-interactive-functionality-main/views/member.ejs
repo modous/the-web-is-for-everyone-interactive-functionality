@@ -1,0 +1,9 @@
+<%- include('./partials/head.ejs') %>
+
+<section>
+  <h2><%= member.name %> <%= member.prefix %> <%= member.surname %></h2>
+  <img src="<%= member.avatar != '' ? member.avatar :'/placeholder.jpg' %>" alt="De avatar van <%= member.name %>" />
+  <p><%- member.bio.html %></p>
+</section>
+
+<%- include('./partials/foot.ejs') %>

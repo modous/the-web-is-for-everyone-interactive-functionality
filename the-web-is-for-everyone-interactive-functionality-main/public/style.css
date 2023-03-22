@@ -1,0 +1,126 @@
+:root {
+  --color-pink: #d88c9a;
+  --color-orange: #f2d0a9;
+  --color-almond: #f1e3d3;
+  --color-green: #99c1b9;
+  --color-purple: #8e7dbe;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  font-weight: 200;
+  background: var(--color-almond);
+  color: black;
+}
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  gap: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+main > h1 {
+  flex-basis: 100%;
+}
+
+article {
+  position: relative;
+  transition: 0.5s;
+  display: flex;
+  flex-flow: row nowrap;
+  width: 10rem;
+  height: 5rem;
+  border-radius: 1rem;
+  background: var(--color-green);
+}
+article:last-of-type {
+  background: var(--color-purple);
+}
+
+article h2 {
+  display: block;
+  padding: 0.5rem;
+  width: 5rem;
+  height: 5rem;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+  overflow: none;
+}
+article img {
+  width: 5rem;
+  height: 5rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+article a {
+  position: absolute;
+  width: 10rem;
+  height: 5rem;
+  border-radius: 1rem;
+}
+article:has(a:hover) {
+  transform: scale(1.2);
+}
+
+footer > p > span {
+  display: inline-block;
+  transform: rotate(180deg);
+}
+
+fieldset {
+  padding: 1rem;
+}
+
+label {
+  margin: 1rem 0 0.2rem;
+  display: block;
+  font-size: 1.6rem;
+}
+select,
+textarea,
+input[type='text'],
+input[type='submit'] {
+  font-family: monospace;
+  padding: var(--component-padding);
+  width: 100%;
+  font-size: 1.6rem;
+  background-color: #fff4;
+  border: 1px solid currentColor;
+  border-radius: var(--rounded);
+  color: var(--c-blue);
+}
+textarea {
+  height: 8em;
+}
+textarea:focus,
+input[type='text']:focus {
+  outline: none !important;
+  box-shadow: 0 0 10px var(--c-blue);
+}
+input[type='text'] {
+  height: 1.6em;
+}
+input[type='submit'] {
+  margin-top: 1rem;
+  background: var(--c-blue);
+  color: var(--c-green);
+  border-radius: var(--pilled);
+  transition: 0.25s;
+}
+input[type='submit']:hover {
+  transform: scale(1.05);
+}
+input[type='submit']:focus {
+  transform: scale(1.05);
+  background: var(--c-green);
+  color: var(--c-blue);
+}

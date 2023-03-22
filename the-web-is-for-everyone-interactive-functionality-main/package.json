@@ -1,0 +1,37 @@
+{
+  "name": "the-web-is-for-everyone-interactive-functionality",
+  "version": "0.0.1",
+  "description": "Een semi-live-coded voorbeeld van een interactieve, server side rendered website waarin alle HTTP Request types zijn geimplementeerd.",
+  "main": "server.js",
+  "type": "module",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ju5tu5/the-web-is-for-everyone-interactive-functionality.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "ejs",
+    "rest",
+    "api"
+  ],
+  "author": "J.P. Sturkenboom <j.p.sturkenboom@hva.nl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ju5tu5/the-web-is-for-everyone-interactive-functionality/issues"
+  },
+  "homepage": "https://github.com/ju5tu5/the-web-is-for-everyone-interactive-functionality#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.21"
+  }
+}

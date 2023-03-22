@@ -1,0 +1,43 @@
+<%- include('./partials/head.ejs') %>
+
+<fieldset>
+  <legend>Voeg een nieuwe member toe</legend>
+  <form action="/member" method="post">
+    <input type="hidden" name="id" id="id" value="<%= locals.id ?? '' %>">
+    <input type="hidden" name="squad" value="<%= locals.squad ?? '' %>" />
+
+    <label for="slug">slug:</label>
+		<input type="text" name="slug" id="slug" placeholder="..." value="<%= locals.slug ?? '' %>" />
+
+		<label for="name">name:</label>
+		<input type="text" name="name" id="name" placeholder="..." value="<%= locals.name ?? '' %>" />
+
+		<label for="prefix">prefix:</label>
+		<input type="text" name="prefix" id="prefix" placeholder="..." value="<%= locals.prefix ?? '' %>" />
+
+		<label for="surname">surname:</label>
+		<input type="text" name="surname" id="surname" placeholder="..." value="<%= locals.surname ?? '' %>" />
+
+		<label for="nickname">nickname:</label>
+		<input type="text" name="nickname" id="nickname" placeholder="..." value="<%= locals.nickname ?? '' %>" />
+
+		<label for="avatar">avatar:</label>
+		<input type="text" name="avatar" id="avatar" placeholder="..." value="<%= locals.avatar ?? '' %>" />
+
+		<label for="gitHubHandle">gitHubHandle:</label>
+		<input type="text" name="gitHubHandle" id="gitHubHandle" placeholder="..." value="<%= locals.gitHubHandle ?? '' %>" />
+
+		<label for="website">website:</label>
+		<input type="text" name="website" id="website" placeholder="..." value="<%= locals.website ?? '' %>" />
+
+		<label for="colour">colour:</label>
+		<input type="color" name="colour" id="colour" placeholder="..." value="<%= locals.colour ?? '' %>" />
+
+		<label for="bio">bio:</label>
+		<textarea name="bio" id="bio" cols="30" rows="10" placeholder="..."><%= locals.bio ?? '' %></textarea>
+		<input type="submit" value="Opslaan" />
+
+  </form>
+</fieldset>
+
+<%- include('./partials/foot.ejs') %>
