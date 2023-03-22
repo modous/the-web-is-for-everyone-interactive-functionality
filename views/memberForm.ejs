@@ -1,7 +1,7 @@
 <%- include('./partials/head.ejs') %>
 
 <fieldset>
-  <legend>Voeg een nieuwe member toe</legend>
+  <legend>Voeg een nieuwe comment toe</legend>
   <form action="/member" method="post">
     <input type="hidden" name="id" id="id" value="<%= locals.id ?? '' %>">
     <input type="hidden" name="squad" value="<%= locals.squad ?? '' %>" />
