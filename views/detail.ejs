@@ -1,16 +1,30 @@
 <%- include('./partials/head.ejs') %>
 
+<section>
+  <article class="cover-image">
+    <img src="<%= results[0].coverimages[1] %>" alt="" />
 
+    <article>
+      <h2 class="title"><%= results[0].titles[0] %></h2>
 
-   <section>
-        <article>
-            <img src="<%= results[0].coverimages[1] %>" alt="" />
-        </article>
-    </section>
+      <ul class="info">
+        <li>Auteur: <%= results[0].authors %></li>
+        <li>Jaar: <%= results[0].year %></li>
+        <li>Taal: <%= results[0].languages %></li>
+      </ul>
+    </article>
 
-    <section>
-        <article>
-            <h1>Info:</h1>
-        </article>
-    </section>
+  </article>
+</section>
+
+<section class="summary">
+  <article >
+    <h2 >Samenvatting:</h2>
+    <p><%= results[0].summaries %></p>
+  </article>
+  <article>
+    <h1>Reviews:</h1>
+    
+  </article>
+</section>
 <%- include('./partials/foot.ejs') %>
