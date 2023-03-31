@@ -1,16 +1,23 @@
 <%- include('./partials/head.ejs') %>
-<article class="search">
-    <input type="text" class="searchTerm" placeholder="Zoek hier je boek">
-    <button type="submit" class="searchButton"> Zoek</button>
-    
-</article>  
 
+<div class="search">
+    <form action="" method="get" class="search">
+       Zoek:
+      <input
+        id="site-search"
+        type="text"
+        placeholder="boek..."
+        name="search"
+      />
+    </form>
+    </div>
 <h1>Boeken overzicht</h1>
 <section class="boekenOverzicht">
    
 <% results.forEach(result => { %>
    <a href="/detail?resultIsbn<%= result.isbn %>">
     <article class="boek">
+        
         <img src="<%= result.coverimages %>" alt="boek">
 
        <h2> <%= result.titles[0] %></h2>
