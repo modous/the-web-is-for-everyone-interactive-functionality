@@ -1,0 +1,20 @@
+<%- include('./partials/head.ejs') %>
+
+   
+    <h1 class="h1-reserveer-page">Voer hier je gegevens in</h1>
+    <div class="form-page">
+
+        <form action="/reserveer" method="post">
+            <input type="hidden" name="obaId" value="<%= id %>">
+
+            <label for="lname">Gebruikersnaam?</label>
+            <input type="text" id="lname" name="userName" placeholder="Je gebruikersnaam..">
+
+            <label for="lname">Wanneer wil je de exemplaar lenen?</label>
+            <input type="date" id="lname" name="date" placeholder="De datum..">
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <%- include('./partials/foot.ejs') %>

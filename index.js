@@ -38,6 +38,21 @@ app.get("/detail", async (request, response) => {
   
   });
 
+ // Maakt een route voor de reserveringspagina
+app.get('/reserveer', (request, response) => {
+  response.render('reserveer', {id: request.query.id})
+})
+
+app.post('/reserveer', (request, response) => {
+  const postURL = 'https://api.oba.fdnd.nl/api/v1/'
+  const url = `${postURL}/reserveer`
+
+  postJson(url, request.body).then((data) => {
+    // console.log(JSON.stringify(data))
+  })
+})
+
+
 // Stel het poortnummer in en start express
 app.set('port', process.env.PORT || 8000)
 app.listen(app.get('port'), function () {

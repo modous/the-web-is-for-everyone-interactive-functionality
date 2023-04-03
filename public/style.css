@@ -243,3 +243,56 @@ footer{
 .cover{
     margin-bottom: 50px;
 }
+
+
+
+/* FORMULIER */
+.form-page{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .form-page form{
+    height: 300px;
+    width: 400px;
+    margin-bottom: 100px;
+  }
+  
+  .form-page input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 18px;
+    margin-top: 7px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .form-page input[type=submit] {
+    width: 100%;
+    /* background-color: var(--red);
+    color: white; */
+    padding: 14px 20px;
+    margin: 30px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .form-page input[type=submit]:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  .h1-reserveer-page{
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 20px;
+  }
+  
+  .logo-reserveer-page{
+    height: 100px;
+    width: 150px;
+    margin: 20px 50px 50px 50px
+  }

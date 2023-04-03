@@ -15,7 +15,7 @@
 <section class="boekenOverzicht">
    
 <% results.forEach(result => { %>
-   <a href="/detail?resultIsbn<%= result.isbn %>">
+   <a href="/detail?id=<%= result.id %>">
     <article class="boek">
         
         <img src="<%= result.coverimages %>" alt="boek">
