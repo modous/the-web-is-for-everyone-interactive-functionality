@@ -13,6 +13,10 @@ app.set('view engine', 'ejs')
 app.set('views', './views')
 app.use(express.static('public'))   
 
+// Stel de afhandeling van formulieren in
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
 // Maak een route voor de index pagina
 app.get('/', (request, response) => {
     const booksUrl = url + urlSearch + urlDefault + urlKey + urlOutput;
@@ -45,12 +49,26 @@ app.get('/reserveer', (request, response) => {
 
 app.post('/reserveer', (request, response) => {
   const postURL = 'https://api.oba.fdnd.nl/api/v1/'
-  const url = `${postURL}/reserveer`
+  const url = `${postURL}reserveringen`
+console.log(url)
 
   postJson(url, request.body).then((data) => {
-    // console.log(JSON.stringify(data))
+    let newReservering = { ... request.body }
+    console.log(newReservering);
+    if (data.id) {
+      response.redirect('/') 
+      console.log("werkt!")
+      
+
+    } else{
+      response.redirect('/')
+    }
   })
 })
+
+
+
+
 
 
 // Stel het poortnummer in en start express
@@ -69,3 +87,13 @@ async function fetchJson(url) {
     .then((response) => response.json())
     .catch((error) => error)
 }
+export async function postJson(url, body) {
+  return await fetch(url, {
+    method: 'post',
+    body: JSON.stringify(body),
+    headers: { 'Content-Type': 'application/json' },
+  })
+    .then((response) => response.json())
+    .catch((error) => error)
+}
+
