@@ -64,17 +64,13 @@ app.post('/reserveer', (request, response) => {
 
   postJson(url, request.body).then((data) => {
     let newReservering = { ... request.body }
-    console.log(newReservering);
-    console.log("bliep");
-    console.log(data);
-    if (data.success) {
+    console.log('Hier', data.data.id);
+    console.log(data.id);
+    if (data.data.id) {
+      console.log("bliep");
       response.redirect('/') 
-      console.log("werkt!")
-      
-
     } else {
-      console.log("bloep");
-      console.log(data.message);
+      console.log("errorrrs")
         const errormessage = `${data.message}: Mogelijk komt dit door het id die al bestaat.`;
         const newData = {
           error: errormessage,
@@ -82,10 +78,8 @@ app.post('/reserveer', (request, response) => {
         };
   
         response.render("error", newData);
-        console.log(newData);
       }
-  
-      console.log(JSON.stringify(data.errors));
+      console.log(JSON.stringify(data.id));
   })
 })
 
