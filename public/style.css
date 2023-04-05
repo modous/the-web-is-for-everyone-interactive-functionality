@@ -103,7 +103,10 @@ color:red;
 .boek{
     margin: 20px;
 
+}boek:hover{
+scale: 2;
 }
+
 
 .bookstyle{
     margin: 10px;

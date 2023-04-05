@@ -28,41 +28,64 @@ app.get('/', (request, response) => {
   
 })
 
+app.get('error', (request, response) => {
+  const booksUrl = url + urlSearch + urlDefault + urlKey + urlOutput;
+
+  response.render('error', data)
+ 
+
+})
+
 // Maak een route voor de detail pagina
 app.get("/detail", async (request, response) => {
-    let isbn = request.query.resultIsbn || "9789045117621";
-  
-      const uniqueUrl =
-          url + urlSearch + isbn + urlKey + urlOutput;
-  
+    let id = request.query.id; 
+    const uniqueUrl = url + "?id=" + id + urlKey + urlOutput;
+    
       const data = await fetch(uniqueUrl)
           .then((response) => response.json())
           .catch((err) => err);
-      response.render("detail", data);
+      response.render("detail", data);  
   
   });
 
  // Maakt een route voor de reserveringspagina
 app.get('/reserveer', (request, response) => {
-  response.render('reserveer', {id: request.query.id})
+  const baseurl = "https://api.oba.fdnd.nl/api/v1";
+	const url = `${baseurl}/reserveringen`;
+
+	fetchJson(url).then((data) => {
+		response.render("reserveer", data);
+	});
 })
 
 app.post('/reserveer', (request, response) => {
-  const postURL = 'https://api.oba.fdnd.nl/api/v1/'
-  const url = `${postURL}reserveringen`
-console.log(url)
+  const postUrl = 'https://api.oba.fdnd.nl/api/v1/'
+  const url = `${postUrl}reserveringen`
 
   postJson(url, request.body).then((data) => {
     let newReservering = { ... request.body }
     console.log(newReservering);
-    if (data.id) {
+    console.log("bliep");
+    console.log(data);
+    if (data.success) {
       response.redirect('/') 
       console.log("werkt!")
       
 
-    } else{
-      response.redirect('/')
-    }
+    } else {
+      console.log("bloep");
+      console.log(data.message);
+        const errormessage = `${data.message}: Mogelijk komt dit door het id die al bestaat.`;
+        const newData = {
+          error: errormessage,
+          values: newReservering,
+        };
+  
+        response.render("error", newData);
+        console.log(newData);
+      }
+  
+      console.log(JSON.stringify(data.errors));
   })
 })
 
