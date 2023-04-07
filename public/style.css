@@ -6,10 +6,16 @@
 
 body{
     font-family: 'Avenir',arial,sans-serif;
-    /* margin-bottom: 0px; */
     margin: 0;
-    
 }
+
+
+
+
+
+
+
+
 /* navigatie */
 
 nav ul{
@@ -131,6 +137,27 @@ color:red;
     display: flex;
     justify-content: center;
 }
+
+
+
+.reserveer{
+    border-style: solid;
+    text-decoration: none;
+    background-color: gainsboro;
+    margin: 5px;
+    padding: 5px;
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -258,6 +285,17 @@ footer{
 .cover{
     margin-bottom: 50px;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

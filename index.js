@@ -86,8 +86,6 @@ app.post('/reserveer', (request, response) => {
 
 
 
-
-
 // Stel het poortnummer in en start express
 app.set('port', process.env.PORT || 8000)
 app.listen(app.get('port'), function () {
