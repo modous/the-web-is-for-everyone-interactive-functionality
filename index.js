@@ -5,6 +5,7 @@ const urlSearch = "?q=";
 const urlDefault = "boek";
 const urlKey ="&authorization=1e19898c87464e239192c8bfe422f280";
 const urlOutput = "&refine=true&output=json";
+
 // Maak een nieuwe express app
 const app = express()
 
@@ -58,25 +59,28 @@ app.get('/reserveer', (request, response) => {
 	});
 })
 
+//Hiermee reserveer ik en stuur ik data naar de API
 app.post('/reserveer', (request, response) => {
+  //De gestuurde data gaat naar de volgende URL:
   const postUrl = 'https://api.oba.fdnd.nl/api/v1/'
   const url = `${postUrl}reserveringen`
 
   postJson(url, request.body).then((data) => {
     let newReservering = { ... request.body }
-    console.log('Hier', data.data.id);
-    console.log(data.id);
+
+    //In de data zit een data.id Hiermee check ik of er een ID aanwezig is voor een boek dat nog niet geresereerd is.
     if (data.data.id) {
       console.log("bliep");
       response.redirect('/') 
     } else {
+      //Als het boek al gereserveerd is dan heeft data.data.id geen id meer en krijg je dus een error message.
       console.log("errorrrs")
         const errormessage = `${data.message}: Mogelijk komt dit door het id die al bestaat.`;
         const newData = {
           error: errormessage,
           values: newReservering,
         };
-  
+        //hiermee stuur ik de gebruiker daar de error pagina.
         response.render("error", newData);
       }
       console.log(JSON.stringify(data.id));
